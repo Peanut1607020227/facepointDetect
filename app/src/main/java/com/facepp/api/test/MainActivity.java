@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.xiaofu);
-//        BitmapUtil bitmapUtil = new BitmapUtil();
-//        bitmap = bitmapUtil.createWithUrl("http://image1607.oss-cn-qingdao.aliyuncs.com/xiaofu.jpeg");
         mImageView = (ImageView) findViewById(R.id.imageView);
         mImageView.setImageBitmap(bitmap);
         FacesUtil facesUtil = new FacesUtil();
@@ -36,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Face face = facesUtil.getFacesInfo("http://image1607.oss-cn-qingdao.aliyuncs.com/xiaofu.jpeg");
         bitmap = faceMakeUpUtils.mouthRendering(bitmap,face);
         bitmap = faceMakeUpUtils.drawEyePoint(bitmap,face);
+        bitmap = faceMakeUpUtils.drawEyebrowPoint(bitmap,face);
         mImageView.setImageBitmap(bitmap);
     }
     private String refreshView(final String response) {

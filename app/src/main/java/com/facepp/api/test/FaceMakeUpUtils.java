@@ -11,14 +11,72 @@ import com.megvii.facepp.api.bean.Face;
 /*
  * @auther:peanut
  * @finish time:2019.4.18
- * notation:人脸妆扮处理
+ * notation:人脸妆扮处理集
  */
 public class FaceMakeUpUtils {
+    //人脸关键部位上色：眉型效果
+    public Bitmap eyebrowRendering(Bitmap bm, Face face){
+        Bitmap bmp = bm.copy(Bitmap.Config.ARGB_8888, true);
+        Canvas canvas = new Canvas(bmp);
+        //coding......
+        return bmp;
+    }
+    //人脸关键部位勾勒：眉毛
+    public Bitmap drawEyebrowPoint(Bitmap bm,Face face){
+        Bitmap bmp = bm.copy(Bitmap.Config.ARGB_8888, true);
+        //画布和笔
+        Canvas canvas = new Canvas(bmp);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(Color.RED);//笔色
+        paint.setStrokeWidth(10);//笔宽
+        //左眉毛点集
+        float lpoints[] = {
+                face.getLandmark().getLeft_eyebrow_left_corner().getX(),face.getLandmark().getLeft_eyebrow_left_corner().getY(),
+                face.getLandmark().getLeft_eyebrow_upper_left_quarter().getX(),face.getLandmark().getLeft_eyebrow_upper_left_quarter().getY(),
+                face.getLandmark().getLeft_eyebrow_upper_middle().getX(),face.getLandmark().getLeft_eyebrow_upper_middle().getY(),
+                face.getLandmark().getLeft_eyebrow_upper_right_quarter().getX(),face.getLandmark().getLeft_eyebrow_upper_right_quarter().getY(),
+                face.getLandmark().getLeft_eyebrow_upper_right_corner().getX(),face.getLandmark().getLeft_eyebrow_upper_right_corner().getY(),
+                face.getLandmark().getLeft_eyebrow_lower_right_corner().getX(),face.getLandmark().getLeft_eyebrow_lower_right_corner().getY(),
+                face.getLandmark().getLeft_eyebrow_lower_right_quarter().getX(),face.getLandmark().getLeft_eyebrow_lower_right_quarter().getY(),
+                face.getLandmark().getLeft_eyebrow_lower_middle().getX(),face.getLandmark().getLeft_eyebrow_lower_middle().getY(),
+                face.getLandmark().getLeft_eyebrow_lower_left_quarter().getX(),face.getLandmark().getLeft_eyebrow_lower_left_quarter().getY()
+        };
+        //右眉毛点集
+        float rpoints[] = {
+                face.getLandmark().getRight_eyebrow_right_corner().getX(),face.getLandmark().getRight_eyebrow_right_corner().getY(),
+                face.getLandmark().getRight_eyebrow_upper_right_quarter().getX(),face.getLandmark().getRight_eyebrow_upper_right_quarter().getY(),
+                face.getLandmark().getRight_eyebrow_upper_middle().getX(),face.getLandmark().getRight_eyebrow_upper_middle().getY(),
+                face.getLandmark().getRight_eyebrow_upper_left_quarter().getX(),face.getLandmark().getRight_eyebrow_upper_left_quarter().getY(),
+                face.getLandmark().getRight_eyebrow_upper_left_corner().getX(),face.getLandmark().getRight_eyebrow_upper_left_corner().getY(),
+                face.getLandmark().getRight_eyebrow_lower_left_corner().getX(),face.getLandmark().getRight_eyebrow_lower_left_corner().getY(),
+                face.getLandmark().getRight_eyebrow_lower_left_quarter().getX(),face.getLandmark().getRight_eyebrow_lower_left_quarter().getY(),
+                face.getLandmark().getRight_eyebrow_lower_middle().getX(),face.getLandmark().getRight_eyebrow_lower_middle().getY(),
+                face.getLandmark().getRight_eyebrow_lower_right_quarter().getX(),face.getLandmark().getRight_eyebrow_lower_right_quarter().getY()
+        };
+        //像素适应
+        for (int i=0;i<17;i=i+2){
+            lpoints[i] = (lpoints[i])*bm.getWidth()/960;
+            lpoints[i+1] = (lpoints[i+1])*bm.getHeight()/960;
+            rpoints[i] = (rpoints[i])*bm.getWidth()/960;
+            rpoints[i+1] = (rpoints[i+1])*bm.getHeight()/960;
+        }
+        //描点
+        canvas.drawPoints(lpoints,paint);
+        canvas.drawPoints(rpoints,paint);
+        //连线
+        for(int i=0;i<15;i+=2){
+            canvas.drawLine(lpoints[i],lpoints[i+1],lpoints[i+2],lpoints[i+3],paint);
+            canvas.drawLine(rpoints[i],rpoints[i+1],rpoints[i+2],rpoints[i+3],paint);
+        }
+        canvas.drawLine(lpoints[0],lpoints[1],lpoints[16],lpoints[17],paint);
+        canvas.drawLine(rpoints[0],rpoints[1],rpoints[16],rpoints[17],paint);
+        return bmp;
+    }
     //人脸关键部位上色：眼影效果
     public Bitmap eyeRendering(Bitmap bm, Face face){
         Bitmap bmp = bm.copy(Bitmap.Config.ARGB_8888, true);
         Canvas canvas = new Canvas(bmp);
-
+        //coding......
         return bmp;
     }
     //人脸关键部位勾勒：眼睛
@@ -29,6 +87,7 @@ public class FaceMakeUpUtils {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.RED);//笔色
         paint.setStrokeWidth(10);//笔宽
+        //左眼点集
         float lpoints[] = {
                 face.getLandmark().getLeft_eye_left_corner().getX(),face.getLandmark().getLeft_eye_left_corner().getY(),
                 face.getLandmark().getLeft_eye_upper_left_quarter().getX(),face.getLandmark().getLeft_eye_upper_left_quarter().getY(),
@@ -39,6 +98,7 @@ public class FaceMakeUpUtils {
                 face.getLandmark().getLeft_eye_bottom().getX(),face.getLandmark().getLeft_eye_bottom().getY(),
                 face.getLandmark().getLeft_eye_lower_left_quarter().getX(),face.getLandmark().getLeft_eye_lower_left_quarter().getY()
         };
+        //右眼点集
         float rpoints[] = {
                 face.getLandmark().getRight_eye_left_corner().getX(),face.getLandmark().getRight_eye_left_corner().getY(),
                 face.getLandmark().getRight_eye_upper_left_quarter().getX(),face.getLandmark().getRight_eye_upper_left_quarter().getY(),
@@ -49,14 +109,17 @@ public class FaceMakeUpUtils {
                 face.getLandmark().getRight_eye_bottom().getX(),face.getLandmark().getRight_eye_bottom().getY(),
                 face.getLandmark().getRight_eye_lower_left_quarter().getX(),face.getLandmark().getRight_eye_lower_left_quarter().getY()
         };
+        //像素适应
         for (int i=0;i<15;i=i+2){
             lpoints[i] = (lpoints[i])*bm.getWidth()/960;
             lpoints[i+1] = (lpoints[i+1])*bm.getHeight()/960;
             rpoints[i] = (rpoints[i])*bm.getWidth()/960;
             rpoints[i+1] = (rpoints[i+1])*bm.getHeight()/960;
         }
+        //描点
         canvas.drawPoints(lpoints,paint);
         canvas.drawPoints(rpoints,paint);
+        //连线
         for(int i=0;i<13;i+=2){
             canvas.drawLine(lpoints[i],lpoints[i+1],lpoints[i+2],lpoints[i+3],paint);
             canvas.drawLine(rpoints[i],rpoints[i+1],rpoints[i+2],rpoints[i+3],paint);
@@ -86,7 +149,6 @@ public class FaceMakeUpUtils {
         patha.lineTo(face.getLandmark().getMouth_upper_lip_bottom().getX()*bm.getWidth()/960,face.getLandmark().getMouth_upper_lip_bottom().getY()*bm.getHeight()/960);
         patha.lineTo(face.getLandmark().getMouth_upper_lip_left_contour3().getX()*bm.getWidth()/960,face.getLandmark().getMouth_upper_lip_left_contour3().getY()*bm.getHeight()/960);
         patha.close();
-        System.out.println(face.getLandmark().getMouth_left_corner().getX());
         canvas.drawPath(patha,paint);
         //下嘴唇
         Path pathb = new Path();
@@ -139,9 +201,10 @@ public class FaceMakeUpUtils {
             point[i+1] = (point[i+1])*bm.getHeight()/960;
             System.out.println(point[i]);
         }
-        //描点，轮廓勾勒线
+        //描点
         canvas.drawPoints(point,paint);
         paint.setStrokeWidth(10);
+        //连线
         for(int i=0;i<33;i+=2){
             if(i!=22)
                 canvas.drawLine(point[i],point[i+1],point[i+2],point[i+3],paint);

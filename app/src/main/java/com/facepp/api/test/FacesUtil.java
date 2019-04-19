@@ -47,7 +47,7 @@ public class FacesUtil {
         map.put("api_key", "8h-KM_8IiizK7I1-nTek-fAD8cIhgSuc");
         map.put("api_secret", "Wd2DoAUc2MGtTXrNU-3lG-5McJUhYbeC");
         map.put("image_url",image_url);
-        map.put("return_landmark", "1");
+        map.put("return_landmark", "2");
         map.put("return_attributes", "gender");
         //byteMap.put("image_file", buff);
         try{
@@ -218,50 +218,62 @@ public class FacesUtil {
         point1.setX(subJsonLandmark.getJSONObject("mouth_left_corner").getIntValue("x"));
         point1.setY(subJsonLandmark.getJSONObject("mouth_left_corner").getIntValue("y"));
         faceLandmark.setMouth_left_corner(point1);
+
         FaceLandmark.Point point2 = new FaceLandmark.Point();
         point2.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_bottom").getIntValue("x"));
         point2.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_bottom").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_bottom(point2);
+
         FaceLandmark.Point point3 = new FaceLandmark.Point();
         point3.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_left_contour1").getIntValue("x"));
         point3.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_left_contour1").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_left_contour1(point3);
+
         FaceLandmark.Point point4 = new FaceLandmark.Point();
         point4.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_left_contour2").getIntValue("x"));
         point4.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_left_contour2").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_left_contour2(point4);
+
         FaceLandmark.Point point5 = new FaceLandmark.Point();
         point5.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_left_contour3").getIntValue("x"));
         point5.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_left_contour3").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_left_contour3(point5);
+
         FaceLandmark.Point point6 = new FaceLandmark.Point();
         point6.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_right_contour1").getIntValue("x"));
         point6.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_right_contour1").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_right_contour1(point6);
+
         FaceLandmark.Point point7 = new FaceLandmark.Point();
         point7.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_right_contour2").getIntValue("x"));
         point7.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_right_contour2").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_right_contour2(point7);
+
         FaceLandmark.Point point8 = new FaceLandmark.Point();
         point8.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_right_contour3").getIntValue("x"));
         point8.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_right_contour3").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_right_contour3(point8);
+
         FaceLandmark.Point point9 = new FaceLandmark.Point();
         point9.setX(subJsonLandmark.getJSONObject("mouth_lower_lip_top").getIntValue("x"));
         point9.setY(subJsonLandmark.getJSONObject("mouth_lower_lip_top").getIntValue("y"));
         faceLandmark.setMouth_lower_lip_top(point9);
+
         FaceLandmark.Point point10 = new FaceLandmark.Point();
         point10.setX(subJsonLandmark.getJSONObject("mouth_right_corner").getIntValue("x"));
         point10.setY(subJsonLandmark.getJSONObject("mouth_right_corner").getIntValue("y"));
         faceLandmark.setMouth_right_corner(point10);
+
         FaceLandmark.Point point11 = new FaceLandmark.Point();
         point11.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_bottom").getIntValue("x"));
         point11.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_bottom").getIntValue("y"));
         faceLandmark.setMouth_upper_lip_bottom(point11);
+
         FaceLandmark.Point point12 = new FaceLandmark.Point();
         point12.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_left_contour1").getIntValue("x"));
         point12.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_left_contour1").getIntValue("y"));
         faceLandmark.setMouth_upper_lip_left_contour1(point12);;
+
         FaceLandmark.Point point13 = new FaceLandmark.Point();
         point13.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_left_contour2").getIntValue("x"));
         point13.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_left_contour2").getIntValue("y"));
@@ -270,18 +282,22 @@ public class FacesUtil {
         point14.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_left_contour3").getIntValue("x"));
         point14.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_left_contour3").getIntValue("y"));
         faceLandmark.setMouth_upper_lip_left_contour3(point14);
+
         FaceLandmark.Point point18 = new FaceLandmark.Point();
         point18.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_right_contour1").getIntValue("x"));
         point18.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_right_contour1").getIntValue("y"));
         faceLandmark.setMouth_upper_lip_right_contour1(point18);
+
         FaceLandmark.Point point15 = new FaceLandmark.Point();
         point15.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_right_contour2").getIntValue("x"));
         point15.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_right_contour2").getIntValue("y"));
         faceLandmark.setMouth_upper_lip_right_contour2(point15);
+
         FaceLandmark.Point point16 = new FaceLandmark.Point();
         point16.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_right_contour3").getIntValue("x"));
         point16.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_right_contour3").getIntValue("y"));
         faceLandmark.setMouth_upper_lip_right_contour3(point16);
+
         FaceLandmark.Point point17 = new FaceLandmark.Point();
         point17.setX(subJsonLandmark.getJSONObject("mouth_upper_lip_top").getIntValue("x"));
         point17.setY(subJsonLandmark.getJSONObject("mouth_upper_lip_top").getIntValue("y"));
@@ -389,7 +405,96 @@ public class FacesUtil {
         faceLandmark.setRight_eye_upper_right_quarter(point38);
         //contourPoint
 
-        //eyebrowPoint
+        //眉毛的点
+        FaceLandmark.Point point39 = new FaceLandmark.Point();
+        point39.setX(subJsonLandmark.getJSONObject("left_eyebrow_left_corner").getIntValue("x"));
+        point39.setY(subJsonLandmark.getJSONObject("left_eyebrow_left_corner").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_left_corner(point39);
+
+        FaceLandmark.Point point40 = new FaceLandmark.Point();
+        point40.setX(subJsonLandmark.getJSONObject("left_eyebrow_lower_left_quarter").getIntValue("x"));
+        point40.setY(subJsonLandmark.getJSONObject("left_eyebrow_lower_left_quarter").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_lower_left_quarter(point40);
+
+        FaceLandmark.Point point41 = new FaceLandmark.Point();
+        point41.setX(subJsonLandmark.getJSONObject("left_eyebrow_lower_middle").getIntValue("x"));
+        point41.setY(subJsonLandmark.getJSONObject("left_eyebrow_lower_middle").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_lower_middle(point41);
+
+        FaceLandmark.Point point42 = new FaceLandmark.Point();
+        point42.setX(subJsonLandmark.getJSONObject("left_eyebrow_lower_right_quarter").getIntValue("x"));
+        point42.setY(subJsonLandmark.getJSONObject("left_eyebrow_lower_right_quarter").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_lower_right_quarter(point42);
+
+        FaceLandmark.Point point43 = new FaceLandmark.Point();
+        point43.setX(subJsonLandmark.getJSONObject("left_eyebrow_lower_right_corner").getIntValue("x"));
+        point43.setY(subJsonLandmark.getJSONObject("left_eyebrow_lower_right_corner").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_lower_right_corner(point43);
+
+        FaceLandmark.Point point44 = new FaceLandmark.Point();
+        point44.setX(subJsonLandmark.getJSONObject("left_eyebrow_upper_left_quarter").getIntValue("x"));
+        point44.setY(subJsonLandmark.getJSONObject("left_eyebrow_upper_left_quarter").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_upper_left_quarter(point44);
+
+        FaceLandmark.Point point45 = new FaceLandmark.Point();
+        point45.setX(subJsonLandmark.getJSONObject("left_eyebrow_upper_middle").getIntValue("x"));
+        point45.setY(subJsonLandmark.getJSONObject("left_eyebrow_upper_middle").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_upper_middle(point45);
+
+        FaceLandmark.Point point46 = new FaceLandmark.Point();
+        point46.setX(subJsonLandmark.getJSONObject("left_eyebrow_upper_right_corner").getIntValue("x"));
+        point46.setY(subJsonLandmark.getJSONObject("left_eyebrow_upper_right_corner").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_upper_right_corner(point46);
+
+        FaceLandmark.Point point47 = new FaceLandmark.Point();
+        point47.setX(subJsonLandmark.getJSONObject("left_eyebrow_upper_right_quarter").getIntValue("x"));
+        point47.setY(subJsonLandmark.getJSONObject("left_eyebrow_upper_right_quarter").getIntValue("y"));
+        faceLandmark.setLeft_eyebrow_upper_right_quarter(point47);
+
+        FaceLandmark.Point point48 = new FaceLandmark.Point();
+        point48.setX(subJsonLandmark.getJSONObject("right_eyebrow_right_corner").getIntValue("x"));
+        point48.setY(subJsonLandmark.getJSONObject("right_eyebrow_right_corner").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_right_corner(point48);
+
+        FaceLandmark.Point point49 = new FaceLandmark.Point();
+        point49.setX(subJsonLandmark.getJSONObject("right_eyebrow_lower_left_quarter").getIntValue("x"));
+        point49.setY(subJsonLandmark.getJSONObject("right_eyebrow_lower_left_quarter").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_lower_left_quarter(point49);
+
+        FaceLandmark.Point point50 = new FaceLandmark.Point();
+        point50.setX(subJsonLandmark.getJSONObject("right_eyebrow_lower_middle").getIntValue("x"));
+        point50.setY(subJsonLandmark.getJSONObject("right_eyebrow_lower_middle").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_lower_middle(point50);
+
+        FaceLandmark.Point point51 = new FaceLandmark.Point();
+        point51.setX(subJsonLandmark.getJSONObject("right_eyebrow_lower_right_quarter").getIntValue("x"));
+        point51.setY(subJsonLandmark.getJSONObject("right_eyebrow_lower_right_quarter").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_lower_right_quarter(point51);
+
+        FaceLandmark.Point point52 = new FaceLandmark.Point();
+        point52.setX(subJsonLandmark.getJSONObject("right_eyebrow_lower_left_corner").getIntValue("x"));
+        point52.setY(subJsonLandmark.getJSONObject("right_eyebrow_lower_left_corner").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_lower_left_corner(point52);
+
+        FaceLandmark.Point point53 = new FaceLandmark.Point();
+        point53.setX(subJsonLandmark.getJSONObject("right_eyebrow_upper_left_quarter").getIntValue("x"));
+        point53.setY(subJsonLandmark.getJSONObject("right_eyebrow_upper_left_quarter").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_upper_left_quarter(point53);
+
+        FaceLandmark.Point point54 = new FaceLandmark.Point();
+        point54.setX(subJsonLandmark.getJSONObject("right_eyebrow_upper_middle").getIntValue("x"));
+        point54.setY(subJsonLandmark.getJSONObject("right_eyebrow_upper_middle").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_upper_middle(point54);
+
+        FaceLandmark.Point point55 = new FaceLandmark.Point();
+        point55.setX(subJsonLandmark.getJSONObject("right_eyebrow_upper_left_corner").getIntValue("x"));
+        point55.setY(subJsonLandmark.getJSONObject("right_eyebrow_upper_left_corner").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_upper_left_corner(point55);
+
+        FaceLandmark.Point point56 = new FaceLandmark.Point();
+        point56.setX(subJsonLandmark.getJSONObject("right_eyebrow_upper_right_quarter").getIntValue("x"));
+        point56.setY(subJsonLandmark.getJSONObject("right_eyebrow_upper_right_quarter").getIntValue("y"));
+        faceLandmark.setRight_eyebrow_upper_right_quarter(point56);
 
         //nosePoint
         face.setLandmark(faceLandmark);
