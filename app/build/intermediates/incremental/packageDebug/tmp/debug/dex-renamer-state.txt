@@ -1,0 +1,4 @@
+#Thu Apr 18 20:05:10 CST 2019
+base.0=E\:\\facepp-java-sdk-master\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+path.0=classes.dex
+renamed.0=classes.dex

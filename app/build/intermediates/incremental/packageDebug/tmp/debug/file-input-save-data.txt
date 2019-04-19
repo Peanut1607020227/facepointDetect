@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Sat Apr 13 21:22:44 CST 2019
+1.base=E\:\\facepp-java-sdk-master\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
+0.path=xiaofu.jpeg
+0.set=ASSET
+0.base=E\:\\facepp-java-sdk-master\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+1.path=classes.dex
